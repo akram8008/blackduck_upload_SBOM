@@ -95,7 +95,7 @@ func (app *App) uploadSbom(c *gin.Context) {
 
 	c.JSON(http.StatusOK, view{
 		Status: "success",
-		Msg: fmt.Sprintf("sbom file for project: %s, version: %s successfully uploaded",
+		Msg: fmt.Sprintf("sbom file for project: '%s', version: '%s' successfully uploaded",
 			projectName, versionName),
 	})
 }
