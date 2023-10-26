@@ -1,0 +1,111 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "Blackduck Api request",
+        "contact": {
+            "name": "API Support",
+            "email": "akram8008@gmail.com"
+        }
+    },
+    "paths": {
+        "/ping": {
+            "get": {
+                "description": "ping",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "SBOM"
+                ],
+                "summary": "ping",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/app.view"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/app.view"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/app.view"
+                        }
+                    }
+                }
+            }
+        },
+        "/upload/sbom/{projectName}/{versionName}": {
+            "get": {
+                "description": "upload sbom",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "SBOM"
+                ],
+                "summary": "upload sbom",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "project name",
+                        "name": "projectName",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "project version",
+                        "name": "versionName",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/app.view"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/app.view"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/app.view"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "app.view": {
+            "type": "object",
+            "properties": {
+                "msg": {
+                    "type": "string"
+                },
+                "status": {
+                    "type": "string"
+                }
+            }
+        }
+    }
+}

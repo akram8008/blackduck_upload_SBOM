@@ -29,13 +29,13 @@ type BlackDuckComponents struct {
 	bearerExpiresInMilliseconds int64
 }
 
-func NewBlackDuckComponents(serverURL, token string) *BlackDuckComponents {
+func NewBlackDuckComponents(log *log.Logger, serverURL, token string) *BlackDuckComponents {
 	b := BlackDuckComponents{
 		serverURL:  serverURL,
 		token:      token,
 		httpClient: &http.Client{Timeout: time.Minute},
 		mutex:      &sync.Mutex{},
-		log:        log.New(),
+		log:        log,
 	}
 
 	return &b

@@ -1,0 +1,72 @@
+definitions:
+  app.view:
+    properties:
+      msg:
+        type: string
+      status:
+        type: string
+    type: object
+info:
+  contact:
+    email: akram8008@gmail.com
+    name: API Support
+  title: Blackduck Api request
+paths:
+  /ping:
+    get:
+      consumes:
+      - application/json
+      description: ping
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/app.view'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/app.view'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/app.view'
+      summary: ping
+      tags:
+      - SBOM
+  /upload/sbom/{projectName}/{versionName}:
+    get:
+      consumes:
+      - application/json
+      description: upload sbom
+      parameters:
+      - description: project name
+        in: path
+        name: projectName
+        required: true
+        type: string
+      - description: project version
+        in: path
+        name: versionName
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/app.view'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/app.view'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/app.view'
+      summary: upload sbom
+      tags:
+      - SBOM
+swagger: "2.0"
