@@ -8,8 +8,6 @@ import (
 type Config struct {
 	BlackduckUrl   string
 	BlackduckToken string
-	ProjectName    string
-	ProjectVersion string
 }
 
 func New(c *Config) error {
